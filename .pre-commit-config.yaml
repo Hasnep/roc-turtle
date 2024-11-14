@@ -84,6 +84,5 @@ repos:
       - name: Format Nix files
         id: nix-format
         language: system
-        entry: alejandra
-        args: [--quiet]
+        entry: nixfmt
         types: [nix]

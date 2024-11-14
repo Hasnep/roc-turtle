@@ -10,37 +10,41 @@
     extra-trusted-substituters = "https://roc-lang.cachix.org";
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    flake-parts,
-    roc,
-    ...
-  }:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
-      perSystem = {
-        inputs',
-        pkgs,
-        ...
-      }: {
-        devShells.default = pkgs.mkShell {
-          name = "roc-turtle";
-          packages = [
-            inputs'.roc.packages.cli
-            pkgs.actionlint
-            pkgs.alejandra
-            pkgs.check-jsonschema
-            pkgs.fd
-            pkgs.just
-            pkgs.nodePackages.prettier
-            pkgs.nodePackages.svgo
-            pkgs.pre-commit
-            pkgs.python312Packages.pre-commit-hooks
-          ];
-          shellHook = "pre-commit install --overwrite";
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      flake-parts,
+      roc,
+      ...
+    }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
+      perSystem =
+        { inputs', pkgs, ... }:
+        {
+          devShells.default = pkgs.mkShell {
+            name = "roc-turtle";
+            packages = [
+              inputs'.roc.packages.cli
+              pkgs.actionlint
+              pkgs.check-jsonschema
+              pkgs.fd
+              pkgs.just
+              pkgs.nixfmt-rfc-style
+              pkgs.nodePackages.prettier
+              pkgs.nodePackages.svgo
+              pkgs.pre-commit
+              pkgs.python312Packages.pre-commit-hooks
+            ];
+            shellHook = "pre-commit install --overwrite";
+          };
+          formatter = pkgs.nixfmt-rfc-style;
         };
-        formatter = pkgs.alejandra;
-      };
     };
 }
