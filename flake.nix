@@ -28,10 +28,15 @@
           name = "roc-turtle";
           packages = [
             inputs'.roc.packages.cli
+            pkgs.actionlint
             pkgs.alejandra
+            pkgs.check-jsonschema
             pkgs.fd
             pkgs.just
+            pkgs.nodePackages.prettier
             pkgs.nodePackages.svgo
+            pkgs.pre-commit
+            pkgs.python312Packages.pre-commit-hooks
           ];
           shellHook = "pre-commit install --overwrite";
         };
