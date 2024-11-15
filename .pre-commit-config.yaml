@@ -13,6 +13,7 @@ repos:
         language: system
         entry: end-of-file-fixer
         types: [text]
+        exclude_types: [svg]
       - name: Remove trailing whitespace
         id: trailing-whitespace-fixer
         language: system

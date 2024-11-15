@@ -1,10 +1,9 @@
 app [main] {
-    cli: platform "https://github.com/roc-lang/basic-cli/releases/download/0.11.0/SY4WWMhWQ9NvQgvIthcv15AUeA7rAIJHAHgiaSHGhdY.tar.br",
+    cli: platform "https://github.com/roc-lang/basic-cli/releases/download/0.16.0/O00IPk-Krg_diNS2dVWlI0ZQP794Vctxzv0ha96mK0E.tar.br",
     turtle: "../src/main.roc",
 }
 
 import cli.File
-import cli.Task
 import turtle.Turtle
 
 resetPosition : Turtle.Turtle -> Turtle.Turtle

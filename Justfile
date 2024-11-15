@@ -20,7 +20,7 @@ test:
     roc test src/main.roc
 
 examples:
-    fd --extension roc . examples --exec roc run --optimize
+    fd --extension roc . examples --exec roc run --linker=legacy --optimize
     svgo --folder examples
 
 docs:
