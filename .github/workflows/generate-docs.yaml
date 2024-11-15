@@ -15,9 +15,9 @@ jobs:
       id-token: write
     steps:
       - name: Check out the repository
-        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # ratchet:actions/checkout@v3
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
       - name: Install Roc
-        uses: hasnep/setup-roc@f1f8d74d6b48104216ebb0556043f44a8729889c # ratchet:hasnep/setup-roc@main
+        uses: hasnep/setup-roc@03aed6eabc3ffd5c367d9d5291a6504a1afd0413 # ratchet:hasnep/setup-roc@v0.1.0
         with:
           roc-version: nightly
       - name: Generate docs
